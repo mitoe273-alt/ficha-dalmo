@@ -1108,10 +1108,11 @@ function toggleAssassino() {
 
     detAtual -= 6;
 
-    modoAssassino = true;
+  modoAssassino = true;
 
 defesa = 21;
-    atualizarDef();
+
+atualizarDef();
     
     // AUMENTA VIDA E DET
     vidaMax += bonusVidaAssassino;
@@ -1155,10 +1156,11 @@ Colosso recebe +10 em testes de manobras de combate (incluindo para resistir a e
 
   } else {
 
-      modoAssassino = false;
-  
-    defesa = 16;
-    atualizarDef();
+modoAssassino = false;
+
+defesa = 16;
+
+atualizarDef();
 
    localStorage.setItem(SAVE_ID +"modoAssassino", "false");
 
@@ -1333,18 +1335,15 @@ function usarHabilidade(custo) {
   atualizar();
 }
 
-let defesa = localStorage.getItem(SAVE_ID + "defesa");
-let esquiva = localStorage.getItem(SAVE_ID + "esquiva");
-let bloqueio = localStorage.getItem(SAVE_ID + "bloqueio");
+let defesa = parseInt(localStorage.getItem(SAVE_ID + "defesa")) || 16;
+let esquiva = parseInt(localStorage.getItem(SAVE_ID + "esquiva")) || 0;
+let bloqueio = parseInt(localStorage.getItem(SAVE_ID + "bloqueio")) || 10;
 
-// valores padrão só se nunca existirem
-defesa = defesa !== null ? parseInt(defesa) : 16;
-esquiva = esquiva !== null ? parseInt(esquiva) : 0;
-bloqueio = bloqueio !== null ? parseInt(bloqueio) : 10;
-  atualizarDef();
-  
+function atualizarDef() {
+  defesaTexto.innerText = defesa;
+  esquivaTexto.innerText = esquiva;
+  bloqueioTexto.innerText = bloqueio;
 }
-
 
 function atualizarDef() {
   defesaTexto.innerText = defesa;
@@ -2331,8 +2330,11 @@ cargaMax = parseInt(localStorage.getItem(SAVE_ID +"cargaMax")) || 10;
   const habImpacto = document.getElementById("habImpacto");
 
   // restaura modo assassino
-  if (modoAssassino) {
+if (modoAssassino) {
 
+  defesa = 21;
+  atualizarDef();
+  
     document.body.classList.add("modoAssassino");
 
     img.src = "Colosso.png";
