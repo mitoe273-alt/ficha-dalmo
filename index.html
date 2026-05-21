@@ -1293,8 +1293,15 @@ function usarHabilidade(custo) {
   atualizar();
 }
 
-let defesa = 18, esquiva = 28, bloqueio = 0;
+let defesa =
+parseInt(localStorage.getItem(SAVE_ID + "defesa")) || 16;
 
+let esquiva =
+parseInt(localStorage.getItem(SAVE_ID + "esquiva")) || 0;
+
+let bloqueio =
+parseInt(localStorage.getItem(SAVE_ID + "bloqueio")) || 10;
+  
 function editarDefesa() {
   let v = prompt("Defesa:", defesa);
   if (v) defesa = parseInt(v);
@@ -2236,19 +2243,15 @@ function atualizarSegredos() {
 }
 
 
-  // restaura status
-  vidaAtual = parseInt(localStorage.getItem(SAVE_ID +"vidaAtual")) || 100;
-  vidaMax = parseInt(localStorage.getItem(SAVE_ID +"vidaMax")) || 100;
+ // restaura status
+vidaAtual = parseInt(localStorage.getItem(SAVE_ID +"vidaAtual")) || 100;
+vidaMax = parseInt(localStorage.getItem(SAVE_ID +"vidaMax")) || 100;
 
-  detAtual = parseInt(localStorage.getItem(SAVE_ID +"detAtual")) || 10;
-  detMax = parseInt(localStorage.getItem(SAVE_ID +"detMax")) || 10;
+detAtual = parseInt(localStorage.getItem(SAVE_ID +"detAtual")) || 10;
+detMax = parseInt(localStorage.getItem(SAVE_ID +"detMax")) || 10;
 
-  cargaAtual = parseInt(localStorage.getItem(SAVE_ID +"cargaAtual")) || 0;
-  cargaMax = parseInt(localStorage.getItem(SAVE_ID +"cargaMax")) || 10;
-
-  defesa = parseInt(localStorage.getItem(SAVE_ID +"defesa")) || 18;
-  esquiva = parseInt(localStorage.getItem(SAVE_ID +"esquiva")) || 28;
-  bloqueio = parseInt(localStorage.getItem(SAVE_ID +"bloqueio")) || 0;
+cargaAtual = parseInt(localStorage.getItem(SAVE_ID +"cargaAtual")) || 0;
+cargaMax = parseInt(localStorage.getItem(SAVE_ID +"cargaMax")) || 10;
 
   modoAssassino = localStorage.getItem(SAVE_ID +"modoAssassino") === "true";
 
