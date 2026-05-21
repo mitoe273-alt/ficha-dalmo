@@ -1346,9 +1346,35 @@ detGhost.style.width = detPerc + "%";
 localStorage.setItem(SAVE_ID +"cargaAtual", cargaAtual);
 localStorage.setItem(SAVE_ID +"cargaMax", cargaMax);
 
-localStorage.setItem(SAVE_ID +"defesa", defesa);
-localStorage.setItem(SAVE_ID +"esquiva", esquiva);
-localStorage.setItem(SAVE_ID +"bloqueio", bloqueio);
+function editarDefesa() {
+  let v = prompt("Defesa:", defesa);
+
+  if (v !== null) {
+    defesa = parseInt(v);
+    atualizarDef();
+    atualizar();
+  }
+}
+
+function editarEsquiva() {
+  let v = prompt("Esquiva:", esquiva);
+
+  if (v !== null) {
+    esquiva = parseInt(v);
+    atualizarDef();
+    atualizar();
+  }
+}
+
+function editarBloqueio() {
+  let v = prompt("Bloqueio:", bloqueio);
+
+  if (v !== null) {
+    bloqueio = parseInt(v);
+    atualizarDef();
+    atualizar();
+  }
+}
 
 }
 
