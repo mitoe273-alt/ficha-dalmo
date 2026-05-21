@@ -2321,14 +2321,21 @@ cargaMax = parseInt(localStorage.getItem(SAVE_ID +"cargaMax")) || 10;
   const habPerito = document.getElementById("habPerito");
   const habImpacto = document.getElementById("habImpacto");
 
-  // restaura modo assassino
+ // restaura modo assassino
 if (modoAssassino) {
 
-  defesa = 21;
-  atualizarDef();
-  
-    document.body.classList.add("modoAssassino");
+  // reaplica os bônus caso tenha fechado com o modo ativo
+  if (vidaMax <= 100) {
+    vidaMax += bonusVidaAssassino;
+    vidaAtual += bonusVidaAssassino;
+  }
 
+  if (detMax <= 10) {
+    detMax += bonusDetAssassino;
+    detAtual += bonusDetAssassino;
+  }
+
+  document.body.classList.add("modoAssassino");
     img.src = "Colosso.png";
 
     nome.innerText = "COLOSSO";
