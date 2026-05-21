@@ -1304,8 +1304,12 @@ parseInt(localStorage.getItem(SAVE_ID + "bloqueio")) || 10;
   
 function editarDefesa() {
   let v = prompt("Defesa:", defesa);
-  if (v) defesa = parseInt(v);
-  atualizarDef();
+
+  if (v !== null) {
+    defesa = parseInt(v);
+    atualizarDef();
+    atualizar();
+  }
 }
 
 
