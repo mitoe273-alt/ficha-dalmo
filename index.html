@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kemi</title>
+<title>Dalmo</title>
 
 <style>
 body {
@@ -339,15 +339,15 @@ box-shadow:0 0 20px red !important;
 <div class="container">
 <div class="card">
 
-<div class="nome" id="nomePersonagem">Kemi</div>
+<div class="nome" id="nomePersonagem">Dalmo</div>
 
 <div class="portraitBox">
-  <img id="portrait" src="Kemi.png">
+  <img id="portrait" src="Dalmo.png">
 </div>
 
 <div class="classeBox">
   <div class="classeLabel">CLASSE</div>
-  <div class="classeNome">ESPECIALISTA</div>
+  <div class="classeNome">COMBATENTE</div>
 
   <button onclick="abrirHexatombe()" id="btnHexatombe">
 HEXATOMBE
@@ -356,7 +356,7 @@ HEXATOMBE
 
 <div class="atributosBox">
   <div class="atributosLabel">ATRIBUTOS</div>
-  <img id="atributosImg" src="atributoskemi.png">
+  <img id="atributosImg" src="AtributosDalmo.png">
 </div>
 
 <div class="periciasBox">
@@ -621,7 +621,7 @@ gap:20px;
   >
 
   <img
-  src="Carta Facas da kemi.png"
+  src="Carta Facas da Dalmo.png"
   style="
   width:100%;
   max-width:340px;
@@ -1104,9 +1104,9 @@ function toggleAssassino() {
 
     btn.innerText = "Desativar";
 
-    img.src = "Fantasma.png";
+    img.src = "Colosso.png";
 
-    nome.innerText = "Fantasma";
+    nome.innerText = "Colosso";
     nome.style.color = "red";
 
     // HABILIDADES ALTERADAS
@@ -1150,9 +1150,9 @@ function toggleAssassino() {
 
     btn.innerText = "Ativar";
 
-    img.src = "Kemi.png";
+    img.src = "Dalmo.png";
 
-    nome.innerText = "Kemi";
+    nome.innerText = "Dalmo";
     nome.style.color = "#ff4444";
 
     // VOLTA HABILIDADES NORMAIS
@@ -2260,9 +2260,9 @@ function atualizarSegredos() {
 
     document.body.classList.add("modoAssassino");
 
-    img.src = "Fantasma.png";
+    img.src = "Colosso.png";
 
-    nome.innerText = "Fantasma";
+    nome.innerText = "COLOSSO";
     nome.style.color = "red";
 
     btn.innerText = "Desativar";
