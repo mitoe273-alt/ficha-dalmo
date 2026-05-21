@@ -1327,23 +1327,16 @@ function usarHabilidade(custo) {
   atualizar();
 }
 
-let defesa =
-parseInt(localStorage.getItem(SAVE_ID + "defesa")) || 16;
+let defesa = localStorage.getItem(SAVE_ID + "defesa");
+let esquiva = localStorage.getItem(SAVE_ID + "esquiva");
+let bloqueio = localStorage.getItem(SAVE_ID + "bloqueio");
 
-let esquiva =
-parseInt(localStorage.getItem(SAVE_ID + "esquiva")) || 0;
-
-let bloqueio =
-parseInt(localStorage.getItem(SAVE_ID + "bloqueio")) || 10;
+// valores padrão só se nunca existirem
+defesa = defesa !== null ? parseInt(defesa) : 16;
+esquiva = esquiva !== null ? parseInt(esquiva) : 0;
+bloqueio = bloqueio !== null ? parseInt(bloqueio) : 10;
+  atualizarDef();
   
-function editarDefesa() {
-  let v = prompt("Defesa:", defesa);
-
-  if (v !== null) {
-    defesa = parseInt(v);
-    atualizarDef();
-    atualizar();
-  }
 }
 
 
@@ -1388,27 +1381,50 @@ function atualizar() {
   localStorage.setItem(SAVE_ID +"bloqueio", bloqueio);
 
 }
+function editarDefesa() {
+
+  let v = prompt("Defesa:", defesa);
+
+  if (v !== null && v !== "") {
+
+    defesa = parseInt(v);
+
+    if (isNaN(defesa)) defesa = 0;
+
+    atualizarDef();
+    atualizar();
+  }
+}
 
 function editarEsquiva() {
+
   let v = prompt("Esquiva:", esquiva);
 
-  if (v !== null) {
+  if (v !== null && v !== "") {
+
     esquiva = parseInt(v);
+
+    if (isNaN(esquiva)) esquiva = 0;
+
     atualizarDef();
     atualizar();
   }
 }
 
 function editarBloqueio() {
+
   let v = prompt("Bloqueio:", bloqueio);
 
-  if (v !== null) {
+  if (v !== null && v !== "") {
+
     bloqueio = parseInt(v);
+
+    if (isNaN(bloqueio)) bloqueio = 0;
+
     atualizarDef();
     atualizar();
   }
 }
-
 
 function mudarVida(v) {
   vidaAtual = Math.max(0, Math.min(vidaMax, vidaAtual + v));
