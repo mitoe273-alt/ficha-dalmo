@@ -1110,6 +1110,9 @@ function toggleAssassino() {
 
     modoAssassino = true;
 
+defesa = 21;
+    atualizarDef();
+    
     // AUMENTA VIDA E DET
     vidaMax += bonusVidaAssassino;
     vidaAtual += bonusVidaAssassino;
@@ -1153,6 +1156,9 @@ Colosso recebe +10 em testes de manobras de combate (incluindo para resistir a e
   } else {
 
       modoAssassino = false;
+  
+    defesa = 16;
+    atualizarDef();
 
    localStorage.setItem(SAVE_ID +"modoAssassino", "false");
 
