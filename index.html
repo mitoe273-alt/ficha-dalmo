@@ -1326,6 +1326,7 @@ let detAtual = parseInt(localStorage.getItem(SAVE_ID +"detAtual")) || 10;
 let detMax = parseInt(localStorage.getItem(SAVE_ID +"detMax")) || 10;
 
 function atualizar() {
+
   vidaTexto.innerText = vidaAtual + " / " + vidaMax;
   detTexto.innerText = detAtual + " / " + detMax;
 
@@ -1336,24 +1337,22 @@ function atualizar() {
   detFill.style.width = detPerc + "%";
 
   vidaGhost.style.width = vidaPerc + "%";
-detGhost.style.width = detPerc + "%";
-  
- localStorage.setItem(SAVE_ID +"vidaAtual", vidaAtual);
- localStorage.setItem(SAVE_ID +"vidaMax", vidaMax);
- localStorage.setItem(SAVE_ID +"detAtual", detAtual);
+  detGhost.style.width = detPerc + "%";
+
+  // SALVAR STATUS
+  localStorage.setItem(SAVE_ID +"vidaAtual", vidaAtual);
+  localStorage.setItem(SAVE_ID +"vidaMax", vidaMax);
+
+  localStorage.setItem(SAVE_ID +"detAtual", detAtual);
   localStorage.setItem(SAVE_ID +"detMax", detMax);
+
   localStorage.setItem(SAVE_ID +"modoAssassino", modoAssassino);
-localStorage.setItem(SAVE_ID +"cargaAtual", cargaAtual);
-localStorage.setItem(SAVE_ID +"cargaMax", cargaMax);
 
-function editarDefesa() {
-  let v = prompt("Defesa:", defesa);
+  // SALVAR DEFESAS
+  localStorage.setItem(SAVE_ID +"defesa", defesa);
+  localStorage.setItem(SAVE_ID +"esquiva", esquiva);
+  localStorage.setItem(SAVE_ID +"bloqueio", bloqueio);
 
-  if (v !== null) {
-    defesa = parseInt(v);
-    atualizarDef();
-    atualizar();
-  }
 }
 
 function editarEsquiva() {
