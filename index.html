@@ -1301,17 +1301,6 @@ function editarDefesa() {
   atualizarDef();
 }
 
-function editarEsquiva() {
-  let v = prompt("Esquiva:", esquiva);
-  if (v) esquiva = parseInt(v);
-  atualizarDef();
-}
-
-function editarBloqueio() {
-  let v = prompt("Bloqueio:", bloqueio);
-  if (v) bloqueio = parseInt(v);
-  atualizarDef();
-}
 
 function atualizarDef() {
   defesaTexto.innerText = defesa;
@@ -1375,7 +1364,6 @@ function editarBloqueio() {
   }
 }
 
-}
 
 function mudarVida(v) {
   vidaAtual = Math.max(0, Math.min(vidaMax, vidaAtual + v));
